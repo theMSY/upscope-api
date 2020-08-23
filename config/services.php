@@ -31,7 +31,10 @@ return [
     ],
 
     'upscope' => [
-        'key'  => env('UPSCOPE_API_KEY')
-    ]
+        'key' => env('UPSCOPE_API_KEY'),
+    ],
+    'crankWheel' => [
+        'key' => env('CRANKWHEEL_API_KEY'),
+    ],
 
 ];

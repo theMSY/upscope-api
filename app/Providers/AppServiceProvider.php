@@ -2,23 +2,27 @@
 
 namespace App\Providers;
 
+use App\Contracts\CrankWheel\Repository as CrankWheelRepositoryContract;
+use App\Contracts\Upscope\Repository as UpscopeRepositoryContract;
+use App\Repositories\CrankWheelRepository;
+use App\Repositories\UpscopeRepository;
 use Illuminate\Support\ServiceProvider;
-use App\Contracts\Upscope\Repository as UpscopeRepositoryContract ;
-use App\Repositories\UpscopeRepository ;
-class AppServiceProvider extends ServiceProvider
-{
+
+
+class AppServiceProvider extends ServiceProvider {
 
 
     public $singletons = [
-        UpscopeRepositoryContract::class => UpscopeRepository::class
+        UpscopeRepositoryContract::class => UpscopeRepository::class,
+        CrankWheelRepositoryContract::class => CrankWheelRepository::class,
     ];
+
     /**
      * Register any application services.
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         //
     }
 
@@ -27,8 +31,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         //
     }
 }

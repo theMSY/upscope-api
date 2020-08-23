@@ -22,4 +22,9 @@ Route::middleware('api')->get('/clients/{id}/watch', "UpscopeController@watch");
 Route::middleware('api')->get('/clients', "UpscopeController@listAllUsers");
 
 
-
+Route::middleware('api')
+    ->prefix('crank-wheel')
+    ->group(function (){
+        Route::post('/url', "CrankWheelController@createNoAuthUrl");
+        Route::get('/managers', 'CrankWheelController@listManagers');
+    });
