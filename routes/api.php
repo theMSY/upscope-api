@@ -27,4 +27,5 @@ Route::middleware('api')
     ->group(function (){
         Route::post('/url', "CrankWheelController@createNoAuthUrl");
         Route::get('/managers', 'CrankWheelController@listManagers');
+        Route::post('/user', 'CrankWheelController@createNewUser');
     });

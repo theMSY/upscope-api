@@ -9,4 +9,6 @@ interface Repository {
      function createNoAuthLink($email,$duration=30);
 
     function listMembers();
+
+    function createUser($email);
 }

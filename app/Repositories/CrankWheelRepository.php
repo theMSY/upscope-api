@@ -14,9 +14,11 @@ class CrankWheelRepository implements Repository {
     public function __construct() {
 
         $token = config('services.crankWheel.key');
-        $this->client = Http::withHeaders([
-            'Authorization' => 'Basic '.$token
-        ]);
+        $this->client = Http::withHeaders(
+            [
+                'Authorization' => 'Basic ' . $token,
+            ]
+        );
     }
 
     function createNoAuthLink($email, $duration = 30) {
@@ -51,4 +53,29 @@ class CrankWheelRepository implements Repository {
 
         return NULL;
     }
+
+    function createUser($email) {
+        $url = "https://meeting.is/ss/api/user_access";
+        $response = $this->client->post(
+            $url,
+            [
+                'user_access' => [
+                    'privilege' => 'user',
+                    'in_demo_pool' => 'true',
+                    'send_onboarding_email' => 'false',
+                    'email' => $email,
+                ],
+            ]
+        );
+
+
+        if ($response->json()) {
+            return $response->json();
+        }
+
+        return NULL;
+
+    }
+
+
 }
