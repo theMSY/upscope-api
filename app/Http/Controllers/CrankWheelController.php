@@ -9,7 +9,7 @@ class CrankWheelController extends Controller {
 
     public function createNoAuthUrl(Request $request, Repository $repository) {
         $email = $request->get('email');
-        $res = $repository->createNoAuthLink('mohamedsalah.yahyaoui@uteek.net');
+        $res = $repository->createNoAuthLink($email);
         return $res;
     }
 
